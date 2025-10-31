@@ -5,6 +5,13 @@ from math import isfinite
 from datetime import datetime, date, timedelta
 from collections import defaultdict, deque
 from flask import Flask, request, jsonify, render_template_string, send_file
+# carbon_passbook.py
+import os
+
+# 使用相對路徑來確保資料夾的儲存位置在本地可寫的地方
+DATA_DIR = os.path.join(os.getcwd(), "data")
+os.makedirs(DATA_DIR, exist_ok=True)
+
 
 app = Flask(__name__)
 
@@ -871,3 +878,4 @@ function runTour(){
 if __name__ == "__main__":
     print("[INFO] run on http://127.0.0.1:8000")
     app.run(host="0.0.0.0", port=8000, debug=False)
+
