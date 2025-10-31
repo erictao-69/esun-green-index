@@ -1,20 +1,20 @@
-# app.py
-from __future__ import annotations
-import os, io, csv, json
-from math import isfinite
-from datetime import datetime, date, timedelta
-from collections import defaultdict, deque
-from flask import Flask, request, jsonify, render_template_string, send_file
 # carbon_passbook.py
+
 import os
+import io
+import csv
+import json
+from math import isfinite
+from datetime import datetime
+from collections import defaultdict
+from flask import Flask, request, jsonify, render_template_string, send_file
 
 # 使用相對路徑來確保資料夾的儲存位置在本地可寫的地方
 DATA_DIR = os.path.join(os.getcwd(), "data")
 os.makedirs(DATA_DIR, exist_ok=True)
 
-
+# 初始化 Flask 應用
 app = Flask(__name__)
-
 # ---------------- Domain ----------------
 def _nz(x) -> float:
     try:
@@ -878,4 +878,5 @@ function runTour(){
 if __name__ == "__main__":
     print("[INFO] run on http://127.0.0.1:8000")
     app.run(host="0.0.0.0", port=8000, debug=False)
+
 
